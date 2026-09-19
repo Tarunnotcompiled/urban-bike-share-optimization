@@ -1,0 +1,21 @@
+station_id,station_name,total_bikes,available_bikes,available_docks,hour,temperature,rainfall,demand
+1,Central Station,30,8,22,8,28,0,24
+2,City Mall,25,18,7,8,29,0,12
+3,University,40,5,35,9,27,0,31
+4,Metro Station,35,10,25,9,28,0,25
+5,Market Road,20,15,5,10,30,0,10
+1,Central Station,30,6,24,10,30,0,26
+2,City Mall,25,14,11,10,31,0,15
+3,University,40,4,36,11,29,0,34
+4,Metro Station,35,8,27,11,30,0,28
+5,Market Road,20,12,8,11,31,0,14
+1,Central Station,30,12,18,13,32,0,18
+2,City Mall,25,20,5,13,33,0,8
+3,University,40,10,30,13,31,0,27
+4,Metro Station,35,15,20,13,32,0,20
+5,Market Road,20,16,4,13,33,0,7
+1,Central Station,30,4,26,17,29,0,29
+2,City Mall,25,10,15,17,30,0,20
+3,University,40,3,37,17,28,0,36
+4,Metro Station,35,6,29,17,29,0,30
+5,Market Road,20,8,12,17,30,0,16
