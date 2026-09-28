@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urban Bike-Share Optimization</title>
+  <link rel="stylesheet" href="/frontend/css/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">🚲</div>
+        <div>
+          <h1>BikeFlow</h1>
+          <span>Optimization Platform</span>
+        </div>
+      </div>
+
+      <nav>
+        <a class="nav-item active" href="#overview">▦ <span>Overview</span></a>
+        <a class="nav-item" href="#stations">● <span>Stations</span></a>
+        <a class="nav-item" href="#demand">↗ <span>Demand</span></a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="status-dot"></div>
+        <div>
+          <strong>API Status</strong>
+          <small id="apiStatus">Checking...</small>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">REAL-TIME URBAN MOBILITY</p>
+          <h2>Bike-Share Dashboard</h2>
+          <p class="subtitle">Monitor station availability and demand across the network.</p>
+        </div>
+        <button id="refreshBtn" class="refresh-btn">↻ Refresh data</button>
+      </header>
+
+      <section id="overview" class="stats-grid">
+        <article class="stat-card">
+          <div class="stat-label">Total Bikes</div>
+          <div class="stat-value" id="totalBikes">—</div>
+          <div class="stat-note">Across all stations</div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-label">Available Bikes</div>
+          <div class="stat-value" id="availableBikes">—</div>
+          <div class="stat-note">Currently available</div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-label">Open Docks</div>
+          <div class="stat-value" id="availableDocks">—</div>
+          <div class="stat-note">Available parking capacity</div>
+        </article>
+        <article class="stat-card accent-card">
+          <div class="stat-label">Avg. Demand</div>
+          <div class="stat-value" id="averageDemand">—</div>
+          <div class="stat-note">Trips / demand units</div>
+        </article>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="panel chart-panel" id="demand">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">DEMAND ANALYSIS</p>
+              <h3>Average Demand by Station</h3>
+            </div>
+            <span class="live-badge">● LIVE</span>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="demandChart" aria-label="Average demand by station"></canvas>
+          </div>
+        </article>
+
+        <article class="panel insights-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">NETWORK INSIGHT</p>
+              <h3>Current Snapshot</h3>
+            </div>
+          </div>
+          <div class="insight" id="topDemandInsight">
+            <span class="insight-icon">↗</span>
+            <div>
+              <strong>Highest demand</strong>
+              <p>Loading station data...</p>
+            </div>
+          </div>
+          <div class="insight">
+            <span class="insight-icon">🚲</span>
+            <div>
+              <strong>Bike utilization</strong>
+              <p id="utilizationText">Loading...</p>
+            </div>
+          </div>
+          <div class="insight">
+            <span class="insight-icon">▣</span>
+            <div>
+              <strong>Stations monitored</strong>
+              <p id="stationCountText">Loading...</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="stations" class="panel station-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">STATION MONITORING</p>
+            <h3>Station Availability</h3>
+          </div>
+          <span id="lastUpdated" class="updated">Last updated: —</span>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Station</th>
+                <th>Total Bikes</th>
+                <th>Available</th>
+                <th>Open Docks</th>
+                <th>Availability</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="stationTable">
+              <tr><td colspan="6" class="loading">Loading station data...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <footer>
+        <span>Real-time Urban Bike-Share Optimization Platform</span>
+        <span>Flask API · Pandas · Dashboard</span>
+      </footer>
+    </main>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/frontend/js/app.js"></script>
+</body>
+</html>
