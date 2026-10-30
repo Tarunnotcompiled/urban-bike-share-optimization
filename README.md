@@ -91,3 +91,45 @@ The project supports sustainable urban mobility by using data and predictive ana
 ## Note
 
 The current CSV contains sample/demo data for the initial development stage. It will be expanded with a proper dataset and external data sources in later phases.
+
+## Run the Full App
+
+The project now includes a responsive web dashboard in `frontend/`.
+
+### 1. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Start the Flask server
+
+```bash
+python app.py
+```
+
+### 3. Open the dashboard
+
+Visit:
+
+```text
+http://127.0.0.1:5000/
+```
+
+The frontend is served by Flask and uses the existing APIs:
+
+- `GET /stations` — station availability
+- `GET /demand` — average demand by station
+- `GET /api` — API status
+
+### Frontend Structure
+
+```text
+frontend/
+├── index.html
+├── README.md
+├── css/
+│   └── style.css
+└── js/
+    └── app.js
+```

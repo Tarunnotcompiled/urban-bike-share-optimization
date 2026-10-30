@@ -1,13 +1,27 @@
-from flask import Flask, jsonify
+from pathlib import Path
+
+from flask import Flask, jsonify, send_from_directory
 import pandas as pd
 
-app = Flask(__name__)
+BASE_DIR = Path(__file__).resolve().parent
+DATA_FILE = BASE_DIR / "data" / "bike_share_data.csv"
+FRONTEND_DIR = BASE_DIR / "frontend"
 
-DATA_FILE = "data/bike_share_data.csv"
+app = Flask(__name__)
 
 
 @app.route("/")
 def home():
+    return send_from_directory(FRONTEND_DIR, "index.html")
+
+
+@app.route("/frontend/<path:filename>")
+def frontend_files(filename):
+    return send_from_directory(FRONTEND_DIR, filename)
+
+
+@app.route("/api")
+def api_status():
     return jsonify({
         "project": "Real-time Urban Bike-Share Optimization Platform",
         "status": "Project started successfully",
